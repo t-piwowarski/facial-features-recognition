@@ -54,6 +54,21 @@ facial-features-recognition/
    source venv/bin/activate
    ```
 
+3. **Zainstaluj wymagane pakiety:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+---
+
+## 📥 Pobieranie Danych
+
+**CelebA (trening i test)**
+   Użyj skryptu do pobierania CelebA, który pobiera obrazy i pliki tekstowe z Google Drive:
+   ```bash
+   python data/scripts/download_celeba.py
+   ```
+   *Pliki zostaną zapisane w folderze ==data/celeba/==.*
 
 
 

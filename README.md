@@ -6,20 +6,20 @@ Projekt ten służy do rozpoznawania cech twarzy, w tym płci oraz uśmiechu, pr
 
 ## 🏗️ Architektura modeli
 
-### Model rozpoznający płeć (GenderCNN)
+### Model rozpoznający płeć (**GenderCNN**)
 
 - Konwolucyjna sieć neuronowa (CNN) składająca się z czterech bloków:
-  - Warstwy Conv2D, ReLU, BatchNorm, MaxPooling
+  - Warstwy **Conv2D**, **ReLU**, **BatchNorm**, **MaxPooling**
   - W pełni połączone warstwy klasyfikujące
-- Normalizacja danych do zakresu [-1,1]
-- Augmentacja: odbicia, obrót (-15° do 15°), przesunięcie (0-10% wymiaru), zmiany jasności, kontrastu, nasycenia i odcienia
-- Early stopping (przerwanie trenowania po 5 epokach bez poprawy)
+- Normalizacja danych do zakresu **[-1,1]**
+- Augmentacja: odbicia, obrót **(-15° do 15°)**, przesunięcie **(0-10% wymiaru)**, zmiany jasności, kontrastu, nasycenia i odcienia
+- **Early stopping** (przerwanie trenowania po 5 epokach bez poprawy)
 
-### Model rozpoznający uśmiech (SmileResNet)
+### Model rozpoznający uśmiech (**SmileResNet**)
 
-- ResNet50 z transfer learningiem
-- Fine-tuning 4 ostatnich warstw
-- Taki sam proces augmentacji jak w GenderCNN
+- **ResNet50** z transfer learningiem
+- **Fine-tuning** 4 ostatnich warstw
+- Taki sam proces **augmentacji** jak w **GenderCNN**
 
 ---
 

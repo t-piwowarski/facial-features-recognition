@@ -128,8 +128,6 @@ facial-features-recognition/
 
 ## 📚 Zawartość Repozytorium
 
-## 📂 Zawartość Repozytorium
-
 - `src/models/`: Zawiera definicje modeli, w tym `GenderCNNLightning` oraz `SmileResNetLightning`.
 - `src/training/`: Skrypty treningowe dla modeli (płeć i uśmiech).
 - `src/inference/`: Skrypty do testowania modeli – zarówno na zbiorze WIDERFace, jak i w czasie rzeczywistym.

@@ -44,14 +44,14 @@ facial-features-recognition/
 
 2. **Utwórz i aktywuj środowisko wirtualne (opcjonalnie, ale zalecane):**
    
-   - Na Windows:
+- Na Windows:
      
    ```bash
    python -m venv venv
    venv\Scripts\activate
    ```
    
-   - Na Linux/macOS:
+- Na Linux/macOS:
      
    ```bash
    python3 -m venv venv
@@ -90,7 +90,7 @@ facial-features-recognition/
 
    *Pliki zostaną zapisane w folderze <mark>data/WIDERFace/</mark>.*
    
-> **Uwaga:** W przypadku problemów z automatycznym pobieraniem przez *gdown*, pobierz pliki ręcznie (np. z Kaggle lub innego źródła) i umieść je w odpowiednich folderach.
+> **Uwaga:** W przypadku problemów z automatycznym pobieraniem przez 'gdown', pobierz pliki ręcznie (np. z Kaggle lub innego źródła) i umieść je w odpowiednich folderach.
 
 ---
 
@@ -100,5 +100,42 @@ facial-features-recognition/
 
 - **Trening modelu rozpoznawania płci:**
 
-```bash
+   ```bash
    python src/training/train_gender.py
+   ```
+
+- **Trening modelu wykrywania uśmiechu:**
+
+  ```bash
+  python src/training/train_smile.py
+  ```
+
+### Testowanie
+
+- **Testowanie na zbiorze WIDERFace:**
+
+  ```bash
+  python src/inference/test_widerface.py
+  ```
+
+- **Predykcja w czasie rzeczywistym (kamera):**
+
+  ```bash
+  python src/inference/webcam_detection.py
+  ```
+
+---
+
+## 📚 Zawartość Repozytorium
+
+## 📂 Zawartość Repozytorium
+
+- `src/models/`: Zawiera definicje modeli, w tym `GenderCNNLightning` oraz `SmileResNetLightning`.
+- `src/training/`: Skrypty treningowe dla modeli (płeć i uśmiech).
+- `src/inference/`: Skrypty do testowania modeli – zarówno na zbiorze WIDERFace, jak i w czasie rzeczywistym.
+- `data/scripts/`: Skrypty do automatycznego pobierania i rozpakowywania danych (CelebA i WIDERFace).
+- `data/selected_with_bboxes.txt`: Plik z anotacjami, wykorzystywany przy testowaniu modeli na zbiorze WIDERFace.
+- `saved_models/`: Folder przechowujący zapisane modele.
+- `requirements.txt`: Lista zależności niezbędnych do uruchomienia projektu.
+- `.gitignore`: Konfiguracja, aby wykluczyć niepotrzebne pliki (np. dane, wirtualne środowiska, pliki cache).
+

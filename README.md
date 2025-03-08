@@ -43,18 +43,23 @@ facial-features-recognition/
    cd facial-features-recognition
 
 2. **Utwórz i aktywuj środowisko wirtualne (opcjonalnie, ale zalecane):**
+   
    - Na Windows:
+     
    ```bash
    python -m venv venv
    venv\Scripts\activate
    ```
+   
    - Na Linux/macOS:
+     
    ```bash
    python3 -m venv venv
    source venv/bin/activate
    ```
 
-3. **Zainstaluj wymagane pakiety:**
+4. **Zainstaluj wymagane pakiety:**
+   
    ```bash
    pip install -r requirements.txt
    ```
@@ -63,19 +68,37 @@ facial-features-recognition/
 
 ## 📥 Pobieranie Danych
 
-## CelebA
+### CelebA
+
    Użyj skryptu do pobierania CelebA, który pobiera obrazy i pliki tekstowe z Google Drive:
+   
    ```bash
    python data/scripts/download_celeba.py
    ```
-   *Pliki zostaną zapisane w folderze <mark>data/celeba/</mark>.*\
-\
-## WIDERFace (tylko dane treningowe)
+
+   *Pliki zostaną zapisane w folderze <mark>data/celeba/</mark>.*
+   
+> **Uwaga:** W przypadku problemów z automatycznym pobieraniem przez *gdown*, pobierz pliki ręcznie (np. z Google Drive lub innego źródła) i umieść je w odpowiednich folderach.
+
+### WIDERFace (tylko dane treningowe)
+
    Użyj skryptu do pobierania zbioru WIDERFace (trening) oraz anotacji:
+   
    ```bash
    python data/scripts/download_widerface.py
    ```
-   *Pliki zostaną zapisane w folderze <mark>data/WIDERFace/</mark>.*\
-> **Uwaga:** W przypadku problemów z automatycznym pobieraniem przez gdown, pobierz pliki ręcznie (np. z Kaggle lub innego źródła) i umieść je w odpowiednich folderach.
 
+   *Pliki zostaną zapisane w folderze <mark>data/WIDERFace/</mark>.*
+   
+> **Uwaga:** W przypadku problemów z automatycznym pobieraniem przez *gdown*, pobierz pliki ręcznie (np. z Kaggle lub innego źródła) i umieść je w odpowiednich folderach.
 
+---
+
+## ⚙️ Uruchamianie Modeli
+
+### Trening
+
+- **Trening modelu rozpoznawania płci:**
+
+```bash
+   python src/training/train_gender.py

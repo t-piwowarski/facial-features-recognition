@@ -44,14 +44,12 @@ facial-features-recognition/
 
 2. **Utwórz i aktywuj środowisko wirtualne (opcjonalnie, ale zalecane):**
    - Na Windows:
-   ```bash
-   python -m venv venv
-   venv\Scripts\activate
+```bash
+python -m venv venv
+venv\Scripts\activate
 
+  
    - Na Linux/macOS:
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate
 
 
 

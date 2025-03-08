@@ -1,14 +1,10 @@
 # Facial Features Recognition
 
----
-
-## Opis projektu
-
-Ten projekt implementuje modele głębokiego uczenia do klasyfikacji płci i wykrywania uśmiechu na podstawie zdjęć twarzy. Modele są trenowane na zbiorze CelebA i testowane na WIDERFace. Dodatkowo umożliwiają detekcję cech twarzy w czasie rzeczywistym.
+Projekt ten służy do rozpoznawania cech twarzy, w tym płci oraz uśmiechu, przy użyciu modeli głębokiego uczenia (CNN oraz ResNet50). W projekcie wykorzystujemy zbiory CelebA oraz WIDERFace do trenowania i testowania modeli. Dodatkowo umożliwiają detekcję cech twarzy w czasie rzeczywistym. Kod został napisany w Pythonie przy użyciu PyTorch i PyTorch Lightning.
 
 ---
 
-## Architektura modeli
+## 🏗️ Architektura modeli
 
 ### Model rozpoznający płeć (GenderCNN)
 
@@ -27,7 +23,7 @@ Ten projekt implementuje modele głębokiego uczenia do klasyfikacji płci i wyk
 
 ---
 
-## Wyniki modeli
+## 📊 Wyniki modeli
 
 ### Wyniki na zbiorze CelebA:
 
@@ -56,7 +52,7 @@ Ten projekt implementuje modele głębokiego uczenia do klasyfikacji płci i wyk
 
 ---
 
-## 📂 Struktura Repozytorium
+## 📂 Struktura repozytorium
 
 facial-features-recognition/ ├── src/ │ ├── models/ │ │ ├── gender_cnn.py │ │ ├── resnet50_smile.py │ ├── training/ │ │ ├── train_gender.py │ │ ├── train_smile.py │ ├── inference/ │ │ ├── test_widerface.py │ │ ├── webcam_detection.py │ ├── data/ │ ├── scripts/ │ │ ├── download_celeba.py │ │ ├── download_widerface.py │ ├── selected_with_bboxes.txt │ ├── saved_models/ │ ├── gender_cnn.pth │ ├── resnet50_smile.pth │ ├── README.md ├── .gitignore ├── requirements.txt
 
@@ -94,7 +90,7 @@ facial-features-recognition/ ├── src/ │ ├── models/ │ │ ├─
 
 ---
 
-## 📥 Pobieranie Danych
+## 📥 Pobieranie danych
 
 ### CelebA
 
@@ -122,7 +118,7 @@ facial-features-recognition/ ├── src/ │ ├── models/ │ │ ├─
 
 ---
 
-## ⚙️ Uruchamianie Modeli
+## ⚙️ Uruchamianie modeli
 
 ### Trening
 
@@ -154,7 +150,7 @@ facial-features-recognition/ ├── src/ │ ├── models/ │ │ ├─
 
 ---
 
-## 📚 Zawartość Repozytorium
+## 📚 Zawartość repozytorium
 
 - `src/models/`: Zawiera definicje modeli, w tym `GenderCNNLightning` oraz `SmileResNetLightning`.
 - `src/training/`: Skrypty treningowe dla modeli (płeć i uśmiech).

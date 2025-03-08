@@ -76,9 +76,9 @@ facial-features-recognition/
    python data/scripts/download_celeba.py
    ```
 
-   *Pliki zostaną zapisane w folderze <mark>data/celeba/</mark>.*
+   *Pliki zostaną zapisane w folderze `data/celeba/`.*
    
-> **Uwaga:** W przypadku problemów z automatycznym pobieraniem przez *gdown*, pobierz pliki ręcznie (np. z Google Drive lub innego źródła) i umieść je w odpowiednich folderach.
+> **Uwaga:** W przypadku problemów z automatycznym pobieraniem przez `gdown`, pobierz pliki ręcznie (np. z Google Drive lub innego źródła) i umieść je w odpowiednich folderach.
 
 ### WIDERFace (tylko dane treningowe)
 
@@ -88,7 +88,7 @@ facial-features-recognition/
    python data/scripts/download_widerface.py
    ```
 
-   *Pliki zostaną zapisane w folderze <mark>data/WIDERFace/</mark>.*
+   *Pliki zostaną zapisane w folderze `data/WIDERFace/`.*
    
 > **Uwaga:** W przypadku problemów z automatycznym pobieraniem przez 'gdown', pobierz pliki ręcznie (np. z Kaggle lub innego źródła) i umieść je w odpowiednich folderach.
 

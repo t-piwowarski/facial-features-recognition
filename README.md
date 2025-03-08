@@ -68,7 +68,7 @@ facial-features-recognition/
    ```bash
    python data/scripts/download_celeba.py
    ```
-   *Pliki zostaną zapisane w folderze ==data/celeba/==.*
+   *Pliki zostaną zapisane w folderze <mark>data/celeba/</mark>.*
 
 
 

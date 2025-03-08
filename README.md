@@ -7,9 +7,7 @@ Projekt ten służy do rozpoznawania cech twarzy, w tym płci oraz uśmiechu, pr
 ## 📂 Struktura Repozytorium
 
 facial-features-recognition
-├── src
-│ ├── models
-│ │ ├── gender_cnn.py # Definicja modelu CNN do rozpoznawania płci
+├── src  │ ├── models  │ │ ├── gender_cnn.py # Definicja modelu CNN do rozpoznawania płci
 │ │ ├── resnet50_smile.py # Definicja modelu ResNet50 do wykrywania uśmiechu
 │ ├── training
 │ │ ├── train_gender.py # Skrypt do treningu modelu płci

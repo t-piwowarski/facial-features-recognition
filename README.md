@@ -63,7 +63,7 @@ facial-features-recognition/
 
 ## 📥 Pobieranie Danych
 
-**CelebA (trening i test)**
+**CelebA (trening i test)**\
    Użyj skryptu do pobierania CelebA, który pobiera obrazy i pliki tekstowe z Google Drive:
    ```bash
    python data/scripts/download_celeba.py

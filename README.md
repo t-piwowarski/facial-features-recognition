@@ -6,31 +6,31 @@ Projekt ten służy do rozpoznawania cech twarzy, w tym płci oraz uśmiechu, pr
 
 ## 📂 Struktura Repozytorium
 
-facial-features-recognition\
-├── src\
-│ ├── models\
-│ │ ├── gender_cnn.py # Definicja modelu CNN do rozpoznawania płci\
-│ │ ├── resnet50_smile.py # Definicja modelu ResNet50 do wykrywania uśmiechu\
-│ ├── training\
-│ │ ├── train_gender.py # Skrypt do treningu modelu płci\
-│ │ ├── train_smile.py # Skrypt do treningu modelu uśmiechu\
-│ ├── inference\
-│ │ ├── test_widerface.py # Testowanie modeli na zbiorze WIDERFace\
-│ │ ├── webcam_detection.py # Predykcja cech twarzy w czasie rzeczywistym przy użyciu kamery\
-│\
-├── data\
-│ ├── scripts\
-│ │ ├── download_celeba.py # Pobieranie i rozpakowywanie zbioru CelebA (obrazy i metadane)\
-│ │ ├── download_widerface.py # Pobieranie i rozpakowywanie zbioru WIDERFace (trening) wraz z anotacjami\
-│ ├── selected_with_bboxes.txt # Anotacje wybranych obrazów ze zbioru WIDERFace\
-│\
-├── saved_models # Folder na zapisane modele (np. .pth)\
-│ ├── gender_cnn.pth\
-│ ├── resnet50_smile.pth\
-│\
-├── .gitignore\
-├── requirements.txt\
-├── README.md\
+facial-features-recognition/
+├── src/
+│   ├── models/
+│   │   ├── gender_cnn.py         # Model do rozpoznawania płci
+│   │   ├── resnet50_smile.py     # Model do wykrywania uśmiechu
+│   ├── training/
+│   │   ├── train_gender.py       # Skrypt do trenowania modelu płci
+│   │   ├── train_smile.py        # Skrypt do trenowania modelu uśmiechu
+│   ├── inference/
+│   │   ├── test_widerface.py     # Skrypt do testowania na zbiorze WIDERFace
+│   │   ├── webcam_detection.py   # Wykrywanie na kamerze w czasie rzeczywistym
+│
+├── data/
+│   ├── scripts/
+│   │   ├── download_celeba.py    # Skrypt do pobierania zbioru CelebA
+│   │   ├── download_widerface.py # Skrypt do pobierania zbioru WIDERFace
+│   ├── selected_with_bboxes.txt  # Anotacje do zbioru WIDERFace
+│
+├── saved_models/                 # (opcjonalnie) Folder na zapisane modele
+│   ├── gender_cnn.pth
+│   ├── resnet50_smile.pth
+│
+├── README.md
+├── .gitignore
+├── requirements.txt
 
 ---
 

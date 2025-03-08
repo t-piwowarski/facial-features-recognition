@@ -43,5 +43,5 @@ facial-features-recognition
    cd facial-features-recognition
 
 2. **Utwórz i aktywuj środowisko wirtualne (opcjonalnie, ale zalecane):**
-- Na Windows:
+-- Na Windows:
 

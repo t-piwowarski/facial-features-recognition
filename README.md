@@ -29,26 +29,47 @@ Projekt ten służy do rozpoznawania cech twarzy, w tym płci oraz uśmiechu, pr
 
 #### Rozpoznawanie płci:
 
-- **Dokładność**: 98% (mężczyźni), 91% (kobiety)
+- **Dokładność**: 98%
 - **Precyzja**: 97% (mężczyźni), 98% (kobiety)
+- **Czulość**: 96% (mężczyźni), 98% (kobiety)
 - **F1-score**: 97% (mężczyźni), 98% (kobiety)
+
+<img src="docs/images/celeba_gender_confusion_matrix.png" width="500">
+
+<img src="docs/images/celeba_gender_detection_result.png" width="500">
 
 #### Rozpoznawanie uśmiechu:
 
-- **Dokładność**: 90% (nieuśmiechnięci), 92% (uśmiechnięci)
+- **Dokładność**: 91%
+- **Precyzja**: 90% (nieuśmiechnięci), 92% (uśmiechnięci)
+- **Czułość**:  93% (nieuśmiechnięci), 90% (uśmiechnięci)
 - **F1-score**: 92% (nieuśmiechnięci), 91% (uśmiechnięci)
 
+<img src="docs/images/celeba_smile_confusion_matrix.png" width="500">
+
+<img src="docs/images/celeba_smile_detection_result.png" width="500">
+
 ### Wyniki na zbiorze WIDERFace:
+
+<img src="docs/images/widerface_detection.jpg" width="500">
 
 #### Rozpoznawanie płci:
 
 - **Dokładność**: 85%
 - **Precyzja**: 88% (mężczyźni), 82% (kobiety)
+- **Czułość**: 82% (mężczyźni), 89% (kobiety)
+- **F1-score**:  85% (mężczyźni), 85% (kobiety)
+
+<img src="docs/images/widerface_gender_confusion_matrix.png" width="500">
 
 #### Rozpoznawanie uśmiechu:
 
 - **Dokładność**: 84%
 - **Precyzja**: 76% (nieuśmiechnięci), 92% (uśmiechnięci)
+- **Czułość**: 92% (nieuśmiechnięci), 77% (uśmiechnięci)
+- **F1-score**: 83% (nieuśmiechnięci), 84% (uśmiechnięci)
+
+<img src="docs/images/widerface_smile_confusion_matrix.png" width="500">
 
 ---
 

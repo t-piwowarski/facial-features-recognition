@@ -75,7 +75,40 @@ Projekt ten służy do rozpoznawania cech twarzy, w tym płci oraz uśmiechu, pr
 
 ## 📂 Struktura repozytorium
 
-facial-features-recognition/ ├── src/ │ ├── models/ │ │ ├── gender_cnn.py │ │ ├── resnet50_smile.py │ ├── training/ │ │ ├── train_gender.py │ │ ├── train_smile.py │ ├── inference/ │ │ ├── test_widerface.py │ │ ├── webcam_detection.py │ ├── data/ │ ├── scripts/ │ │ ├── download_celeba.py │ │ ├── download_widerface.py │ ├── selected_with_bboxes.txt │ ├── saved_models/ │ ├── gender_cnn.pth │ ├── resnet50_smile.pth │ ├── README.md ├── .gitignore ├── requirements.txt
+facial-features-recognition/ 
+├── src/ 
+│ ├── models/ 
+│ │ ├── gender_cnn.py 
+│ │ ├── resnet50_smile.py 
+│ ├── training/ 
+│ │ ├── train_gender.py 
+│ │ ├── train_smile.py 
+│ ├── inference/ 
+│ │ ├── test_widerface.py 
+│ │ ├── webcam_detection.py 
+│ 
+├── data/ 
+│ ├── scripts/ 
+│ │ ├── download_celeba.py 
+│ │ ├── download_widerface.py 
+│ ├── selected_with_bboxes.txt 
+│ 
+├── saved_models/ 
+| │ ├── gender_cnn.pth 
+| │ ├── resnet50_smile.pth 
+│
+├── docs/  # 📂 Katalog na dokumentację
+│   ├── images/  # 📂 Katalog na ilustracje
+│   │   ├── gender_cnn_architecture.png
+│   │   ├── resnet_smile_architecture.png
+│   │   ├── gender_confusion_matrix_celeba.png
+│   │   ├── smile_confusion_matrix_celeba.png
+│   │   ├── gender_confusion_matrix_widerface.png
+│   │   ├── smile_confusion_matrix_widerface.png
+│ 
+├── README.md 
+├── .gitignore 
+├── requirements.txt
 
 ---
 

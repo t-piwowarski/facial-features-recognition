@@ -1,79 +1,79 @@
 # Facial Features Recognition
 
-Projekt ten służy do rozpoznawania cech twarzy, w tym płci oraz uśmiechu, przy użyciu modeli głębokiego uczenia (CNN oraz ResNet50). W projekcie wykorzystujemy zbiory CelebA oraz WIDERFace do trenowania i testowania modeli. Dodatkowo umożliwiają detekcję cech twarzy w czasie rzeczywistym. Kod został napisany w Pythonie przy użyciu PyTorch i PyTorch Lightning.
+This project is used to recognize facial features, including gender and smile, using deep learning models (CNN and ResNet50). The project uses CelebA and WIDERFace datasets to train and test models. Additionally, they enable real-time facial feature detection. The code was written in Python using PyTorch and PyTorch Lightning.
 
 ---
 
-## 🏗️ Architektura modeli
+## 🏗️ Model architecture
 
-### Model rozpoznający płeć (**GenderCNN**)
+### Gender Recognition Model (**GenderCNN**)
 
-- Konwolucyjna sieć neuronowa (CNN) składająca się z czterech bloków:
-  - Warstwy **Conv2D**, **ReLU**, **BatchNorm**, **MaxPooling**
-  - W pełni połączone warstwy klasyfikujące
-- Normalizacja danych do zakresu **[-1,1]**
-- Augmentacja: odbicia, obrót **(-15° do 15°)**, przesunięcie **(0-10% wymiaru)**, zmiany jasności, kontrastu, nasycenia i odcienia
-- **Early stopping** (przerwanie trenowania po 5 epokach bez poprawy)
+- A convolutional neural network (CNN) consisting of four blocks:
+  - Layers **Conv2D**, **ReLU**, **BatchNorm**, **MaxPooling**
+  - Fully connected classification layers
+- Normalizing data to a range **[-1,1]**
+- Augmentation: reflections, rotation **(-15° do 15°)**, shift **(0-10% wymiaru)**, changes in brightness, contrast, saturation and hue
+- **Early stopping** (stopping training after 5 epochs without improvement)
 
-### Model rozpoznający uśmiech (**SmileResNet**)
+### A model that recognizes a smile (**SmileResNet**)
 
-- **ResNet50** z transfer learningiem
-- **Fine-tuning** 4 ostatnich warstw
-- Taki sam proces **augmentacji** jak w **GenderCNN**
+- **ResNet50** with transfer learning
+- **Fine-tuning** 4 last layers
+- Same **augmentation** process as in **GenderCNN**
 
 ---
 
-## 📊 Wyniki modeli
+## 📊 Model results
 
-### Wyniki na zbiorze CelebA:
+### Results on CelebA set:
 
-#### Rozpoznawanie płci:
+#### Gender recognition:
 
-- **Dokładność**: 98%
-- **Precyzja**: 97% (mężczyźni), 98% (kobiety)
-- **Czulość**: 96% (mężczyźni), 98% (kobiety)
-- **F1-score**: 97% (mężczyźni), 98% (kobiety)
+- **Accuracy**: 98%
+- **Precision**: 97% (men), 98% (women)
+- **Sensitivity**: 96% (men), 98% (women)
+- **F1-score**: 97% (men), 98% (women)
 
 <img src="docs/images/celeba_gender_confusion_matrix.png" width="500">
 
 <img src="docs/images/celeba_gender_detection_result.png" width="500">
 
-#### Rozpoznawanie uśmiechu:
+#### Smile recognition:
 
-- **Dokładność**: 91%
-- **Precyzja**: 90% (nieuśmiechnięci), 92% (uśmiechnięci)
-- **Czułość**:  93% (nieuśmiechnięci), 90% (uśmiechnięci)
-- **F1-score**: 92% (nieuśmiechnięci), 91% (uśmiechnięci)
+- **Accuracy**: 91%
+- **Precision**: 90% (non-smiling), 92% (smiling)
+- **Sensitivity**: 93% (non-smiling), 90% (smiling)
+- **F1-score**: 92% (non-smiling), 91% (smiling)
 
 <img src="docs/images/celeba_smile_confusion_matrix.png" width="500">
 
 <img src="docs/images/celeba_smile_detection_result.png" width="500">
 
-### Wyniki na zbiorze WIDERFace:
+### Results on the WIDERFace set:
 
 <img src="docs/images/widerface_detection.jpg" width="500">
 
-#### Rozpoznawanie płci:
+#### Gender recognition:
 
-- **Dokładność**: 85%
-- **Precyzja**: 88% (mężczyźni), 82% (kobiety)
-- **Czułość**: 82% (mężczyźni), 89% (kobiety)
-- **F1-score**:  85% (mężczyźni), 85% (kobiety)
+- **Accuracy**: 85%
+- **Precision**: 88% (men), 82% (women)
+- **Sensitivity**: 82% (men), 89% (women)
+- **F1-score**: 85% (men), 85% (women)
 
 <img src="docs/images/widerface_gender_confusion_matrix.png" width="500">
 
-#### Rozpoznawanie uśmiechu:
+#### Smile recognition:
 
-- **Dokładność**: 84%
-- **Precyzja**: 76% (nieuśmiechnięci), 92% (uśmiechnięci)
-- **Czułość**: 92% (nieuśmiechnięci), 77% (uśmiechnięci)
-- **F1-score**: 83% (nieuśmiechnięci), 84% (uśmiechnięci)
+- **Accuracy**: 84%
+- **Precision**: 76% (non-smiling), 92% (smiling)
+- **Sensitivity**: 92% (non-smiling), 77% (smiling)
+- **F1-score**: 83% (non-smiling), 84% (smiling)
 
 <img src="docs/images/widerface_smile_confusion_matrix.png" width="500">
 
 ---
 
-## 📂 Struktura repozytorium
+## 📂 Repository structure
 
 facial-features-recognition\
 │── src\
@@ -112,31 +112,31 @@ facial-features-recognition\
 
 ---
 
-## 🚀 Instalacja
+## 🚀 Installation
 
-1. **Sklonuj repozytorium:**
+1. **Clone repository:**
 
    ```bash
    git clone https://github.com/TwojUserName/facial-features-recognition.git
    cd facial-features-recognition
 
-2. **Utwórz i aktywuj środowisko wirtualne (opcjonalnie, ale zalecane):**
+2. **Create and activate a virtual environment (optional but recommended):**
    
-- Na Windows:
+- On Windows:
      
    ```bash
    python -m venv venv
    venv\Scripts\activate
    ```
    
-- Na Linux/macOS:
+- On Linux/macOS:
      
    ```bash
    python3 -m venv venv
    source venv/bin/activate
    ```
 
-3. **Zainstaluj wymagane pakiety:**
+3. **Install the required packages:**
    
    ```bash
    pip install -r requirements.txt
@@ -144,59 +144,59 @@ facial-features-recognition\
 
 ---
 
-## 📥 Pobieranie danych
+## 📥 Downloading data
 
 ### CelebA
 
-   Użyj skryptu do pobierania CelebA, który pobiera obrazy i pliki tekstowe z Google Drive:
+   Use CelebA download script that downloads images and text files from Google Drive:
    
    ```bash
    python data/scripts/download_celeba.py
    ```
 
-   *Pliki zostaną zapisane w folderze `data/celeba/`.*
+   *The files will be saved in `data/celeba/` folder.*
    
-> **Uwaga:** W przypadku problemów z automatycznym pobieraniem przez `gdown`, pobierz pliki ręcznie (np. z Google Drive lub innego źródła) i umieść je w odpowiednich folderach.
+> **Note:** If you experience problems with automatic downloading via `gdown`, download the files manually (e.g. from Google Drive or another source) and place them in the appropriate folders.
 
-### WIDERFace (tylko dane treningowe)
+### WIDERFace (only training data)
 
-   Użyj skryptu do pobierania zbioru WIDERFace (trening) oraz anotacji:
+   Use the script to download the WIDERFace (training) dataset and annotations:
    
    ```bash
    python data/scripts/download_widerface.py
    ```
 
-   *Pliki zostaną zapisane w folderze `data/WIDERFace/`.*
+   *Files will be saved in `data/WIDERFace/` folder.*
    
-> **Uwaga:** W przypadku problemów z automatycznym pobieraniem przez 'gdown', pobierz pliki ręcznie (np. z Kaggle lub innego źródła) i umieść je w odpowiednich folderach.
+> **Note:** If you experience problems with automatic downloading via 'gdown', please download the files manually (e.g. from Kaggle or another source) and place them in the appropriate folders.
 
 ---
 
-## ⚙️ Uruchamianie modeli
+## ⚙️ Running models
 
-### Trening
+### Training
 
-- **Trening modelu rozpoznawania płci:**
+- **Gender Recognition Model Training:**
 
    ```bash
    python src/training/train_gender.py
    ```
 
-- **Trening modelu wykrywania uśmiechu:**
+- **Smile Detection Model Training:**
 
   ```bash
   python src/training/train_smile.py
   ```
 
-### Testowanie
+### Testing
 
-- **Testowanie na zbiorze WIDERFace:**
+- **Testing on the WIDERFace set:**
 
   ```bash
   python src/inference/test_widerface.py
   ```
 
-- **Predykcja w czasie rzeczywistym (kamera):**
+- **Real-time prediction (camera):**
 
   ```bash
   python src/inference/webcam_detection.py
@@ -206,12 +206,12 @@ facial-features-recognition\
 
 ## 📚 Zawartość repozytorium
 
-- `src/models/`: Zawiera definicje modeli, w tym `GenderCNNLightning` oraz `SmileResNetLightning`.
-- `src/training/`: Skrypty treningowe dla modeli (płeć i uśmiech).
-- `src/inference/`: Skrypty do testowania modeli – zarówno na zbiorze WIDERFace, jak i w czasie rzeczywistym.
-- `data/scripts/`: Skrypty do automatycznego pobierania i rozpakowywania danych (CelebA i WIDERFace).
-- `data/selected_with_bboxes.txt`: Plik z anotacjami, wykorzystywany przy testowaniu modeli na zbiorze WIDERFace.
-- `saved_models/`: Folder przechowujący zapisane modele.
-- `requirements.txt`: Lista zależności niezbędnych do uruchomienia projektu.
-- `.gitignore`: Konfiguracja, aby wykluczyć niepotrzebne pliki (np. dane, wirtualne środowiska, pliki cache).
+- `src/models/`: Contains model definitions, including `GenderCNNLightning` and `SmileResNetLightning`.
+- `src/training/`: Training scripts for models (gender and smile).
+- `src/inference/`: Scripts for testing models - both on the WIDERFace dataset and in real time.
+- `data/scripts/`: Scripts for automatic downloading and unpacking of data (CelebA and WIDERFace).
+- `data/selected_with_bboxes.txt`: Annotation file, used for testing models on the WIDERFace dataset.
+- `saved_models/`: Folder for storing saved models.
+- `requirements.txt`: List of dependencies necessary to run the project.
+- `.gitignore`: Configuration to exclude unnecessary files (e.g. data, virtual environments, cache files).
 

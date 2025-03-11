@@ -86,6 +86,7 @@ facial-features-recognition\
 │  │── inference\
 │  │  │── test_widerface.py\
 │  │  │── webcam_detection.py\
+│  │  │── face.xml\
 │ \
 │── data\
 │  │── scripts\

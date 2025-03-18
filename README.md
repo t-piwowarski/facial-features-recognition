@@ -98,7 +98,7 @@ facial-features-recognition\
 │  │── gender_cnn.pth\
 │  │── resnet50_smile.pth\
 │ \
-├── docs\
+│── docs\
 │   │── images\
 │   │   │── gender_cnn_architecture.png\
 │   │   │── resnet_smile_architecture.png\
@@ -118,7 +118,7 @@ facial-features-recognition\
 1. **Clone repository:**
 
    ```bash
-   git clone https://github.com/TwojUserName/facial-features-recognition.git
+   git clone https://github.com/t-piwowarski/facial-features-recognition.git
    cd facial-features-recognition
 
 2. **Create and activate a virtual environment (optional but recommended):**

@@ -7,30 +7,31 @@ from src.models.gender_cnn import GenderCNNLightning
 from src.models.resnet50_smile import SmileResNetLightning
 
 
-# Ustawienie urządzenia (GPU, jeśli dostępne)
+# Use GPU if available
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-# Załadowanie wytrenowanych modeli
+# Load pretrained gender classification model
 gender_model = GenderCNNLightning().to(device)
 gender_model.load_state_dict(torch.load("saved_models/gender_cnn"))
 gender_model.eval()
 
+# Load pretrained smile detection model
 smile_model = SmileResNetLightning().to(device)
 smile_model.load_state_dict(torch.load("saved_models/smile_resnet.pth"))
 smile_model.eval()
 
-# Transformacja obrazu do formatu zgodnego z modelem
+# Image preprocessing pipeline
 transform = transforms.Compose([
     transforms.Resize((178, 178)),
     transforms.ToTensor(),
     transforms.Normalize(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5])
 ])
 
-# Ścieżki do danych
+# Paths to data and annotations
 data_dir = "data/WIDER_train/images"
 annotation_file = "data/selected_with_bboxes.txt"
 
-# Funkcja parsująca plik anotacji
+# Parse annotation file into structured format
 def parse_widerface_annotations(annotation_path):
     with open(annotation_path, "r") as f:
         lines = f.readlines()
@@ -55,14 +56,14 @@ def parse_widerface_annotations(annotation_path):
     
     return data
 
-# Wczytanie anotacji
+# Load annotations
 annotations = parse_widerface_annotations(annotation_file)
 
-# Folder na zapisane wyniki
+# Create output directory for annotated images
 output_dir = "output_predictions"
 os.makedirs(output_dir, exist_ok=True)
 
-# Metryki do oceny modelu
+# Initialize evaluation counters
 correct_gender = 0
 correct_smile = 0
 total_faces = 0
@@ -72,7 +73,7 @@ gender_predicted = []
 smile_true = []
 smile_predicted = []
 
-# Przetwarzanie obrazów z WIDERFace
+# Process each image and run predictions
 for entry in annotations:
     image_path = os.path.join(data_dir, entry["image_path"])
     image = cv2.imread(image_path)
@@ -84,13 +85,13 @@ for entry in annotations:
     for face in entry["faces"]:
         x, y, w, h = face["bbox"]
 
-        # Kadrowanie twarzy
+        # Crop and preprocess face
         cropped_face = image[y:y+h, x:x+w]
         cropped_face = cv2.cvtColor(cropped_face, cv2.COLOR_BGR2RGB)
         pil_image = Image.fromarray(cropped_face)
         tensor_image = transform(pil_image).unsqueeze(0).to(device)
 
-        # Predykcje modeli
+        # Run predictions
         gender_output = gender_model(tensor_image)
         smile_output = smile_model(tensor_image)
 
@@ -100,7 +101,7 @@ for entry in annotations:
         gender_label = "Male" if gender_pred == 1 else "Female"
         smile_label = "Smiling" if smile_pred == 1 else "No_Smiling"
 
-        # Sprawdzenie poprawności predykcji
+        # Track accuracy
         gender_correct = (gender_label == face["gender"])
         smile_correct = (smile_label == face["smile"])
 
@@ -113,18 +114,18 @@ for entry in annotations:
         correct_smile += smile_correct
         total_faces += 1
 
-        # Oznaczenie predykcji na obrazie
+        # Draw predictions on image
         cv2.rectangle(image, (x, y), (x + w, y + h), (0, 255, 0) if gender_correct and smile_correct else (0, 0, 255), 2)
         cv2.putText(image, gender_label, (x, y - 25), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
         cv2.putText(image, smile_label, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
 
-    # Zapisz obraz z oznaczonymi predykcjami
+    # Save annotated image
     output_path = os.path.join(output_dir, os.path.basename(entry["image_path"]))
     cv2.imwrite(output_path, image)
 
-# Wyniki końcowe
+# Final accuracy stats
 accuracy_gender = correct_gender / total_faces if total_faces > 0 else 0
 accuracy_smile = correct_smile / total_faces if total_faces > 0 else 0
 
-print(f"Dokładność rozpoznawania płci: {accuracy_gender:.2f}")
-print(f"Dokładność rozpoznawania uśmiechu: {accuracy_smile:.2f}")
+print(f"Gender classification accuracy: {accuracy_gender:.2f}")
+print(f"Smile detection accuracy: {accuracy_smile:.2f}")

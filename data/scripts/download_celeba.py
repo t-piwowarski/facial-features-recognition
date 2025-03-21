@@ -2,12 +2,12 @@ import os
 import gdown
 import zipfile
 
-# 🔹 Ścieżki do folderów
+# Paths for dataset storage
 DATA_DIR = "data/celeba"
 ZIP_PATH = os.path.join(DATA_DIR, "img_align_celeba.zip")
 FOLDER_PATH = os.path.join(DATA_DIR, "img_align_celeba")
 
-# 🔹 Pliki tekstowe CelebA
+# Google Drive file IDs for CelebA metadata files
 FILES = {
     "identity_CelebA.txt": "0B7EVK8r0v71pQy1od2FJSHpoU3M",
     "list_attr_celeba.txt": "0B7EVK8r0v71pblRyaVFSWGxPY0U",
@@ -16,27 +16,27 @@ FILES = {
     "list_landmarks_align_celeba.txt": "0B7EVK8r0v71pdjM3NkFBSW9GZ2c"
 }
 
-# 🔹 Utwórz folder na dane
+# Create the dataset directory if it doesn't exist
 os.makedirs(DATA_DIR, exist_ok=True)
 
-# 🔹 Pobierz CelebA (obrazy) z Google Drive
+# Download the image archive if it's not already present
 if not os.path.exists(ZIP_PATH):
-    print("📥 Pobieranie obrazów CelebA...")
+    print("Downloading CelebA image archive...")
     gdown.download("https://drive.google.com/uc?id=0B7EVK8r0v71pZjFTYXZWM3FlRnM", ZIP_PATH, quiet=False)
 
-# 🔹 Rozpakuj, jeśli jeszcze nie jest rozpakowane
+# Extract the archive if the image folder doesn't exist
 if not os.path.exists(FOLDER_PATH):
-    print("📦 Rozpakowywanie CelebA...")
+    print("Extracting CelebA images...")
     with zipfile.ZipFile(ZIP_PATH, "r") as zip_ref:
         zip_ref.extractall(DATA_DIR)
-    print("✅ Obrazy CelebA rozpakowane!")
+    print("Extraction complete.")
 
-# 🔹 Pobierz pliki tekstowe
+# Download required metadata files if not already available
 for filename, file_id in FILES.items():
     file_path = os.path.join(DATA_DIR, filename)
     if not os.path.exists(file_path):
-        print(f"📥 Pobieranie {filename}...")
+        print(f"Downloading {filename}...")
         gdown.download(f"https://drive.google.com/uc?id={file_id}", file_path, quiet=False)
-        print(f"✅ {filename} pobrano!")
+        print(f"{filename} downloaded.")
 
-print("🎉 Pobieranie i rozpakowywanie zakończone!")
+print("All files are ready.")
